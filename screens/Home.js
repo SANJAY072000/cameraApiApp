@@ -7,7 +7,6 @@ export default class Home extends Component{
       this.state={
           title:'PhotoClicker',
           photo:''
-          
       }
   }
 

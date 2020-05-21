@@ -32,7 +32,7 @@ flashon=()=>this.setState(
 cap=async ()=>{
     if(this.camera){
     let photo=await this.camera.takePictureAsync();
-    this.props.navigation.navigate('Home',{photo});
+    this.props.navigation.navigate('Home',{photo:photo});
 }
 }
 
@@ -43,8 +43,8 @@ cap=async ()=>{
     type={this.state.type} flashMode={this.state.isFlashLight}>
     <Button title='Flip Camera Mode' onPress={this.flipNow}/>
     <Button title='Capture' onPress={this.cap}/>
-    </Camera>:
-    <Text>No access provided</Text>
+    <Button title='Flash' onPress={this.flashon}/>
+    </Camera>:<Text>No access provided</Text>
   );
 }
 }

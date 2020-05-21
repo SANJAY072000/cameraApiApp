@@ -2,17 +2,11 @@ import React,{Component} from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 export default class Home extends Component{
-  constructor(props){
-      super(props);
-      this.state={
-          title:'PhotoClicker',
-          photo:''
-      }
-  }
-
   render(){
-  let photo=(this.state.photo||'');  
-
+    let photo;
+    if(this.props.route.params)
+    photo = this.props.route.params.photo; 
+    else photo='';
   return (
     <View style={styles.container}>
       <Image resizeMode='center' style={styles.imageHolder} 
@@ -31,7 +25,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   imageHolder:{
-      alignSelf:'center'
+      alignSelf:'center',
+      height:500,
+      margin:20
   },
   button:{
     margin:20
